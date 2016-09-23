@@ -113,7 +113,7 @@ public class PicDataConverter implements Runnable {
                     //System.out.println(threadName + " #I# " + this.images.size() + " #H# " + this.hashs.size() + " #T# " + countThreads);
 
                     hash = HashEngine.hashPicImg(img);
-                    synchronized(this.hashs){ hashs.add(hash); }
+                    synchronized(this.hashs){ this.hashs.add(hash); }
                 }
                 else{
                     Thread.sleep(waitTime);
@@ -123,8 +123,8 @@ public class PicDataConverter implements Runnable {
         }
         catch(Exception e){ e.printStackTrace(); }
 
-        log.info(threadName + " REST-IMG: " + images.size());
-        log.info(threadName + " HASH-Size: " + hashs.size());
+        log.info(threadName + " REST-IMG: " + this.images.size());
+        log.info(threadName + " HASH-Size: " + this.hashs.size());
         //System.out.println("HASHS: " + hashs);
 
         this.pe.shutdownPool();
@@ -150,7 +150,7 @@ public class PicDataConverter implements Runnable {
                         else{ continue; }
                     }
                     hash = HashEngine.hashPicImg(img);
-                    synchronized(this.hashs){ hashs.add(hash); }
+                    synchronized(this.hashs){ this.hashs.add(hash); }
                 }
                 else{
                     Thread.sleep(waitTime);

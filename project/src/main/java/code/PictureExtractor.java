@@ -123,6 +123,8 @@ public class PictureExtractor {
             addPicDataCollector(ThreadType.MANAGER);  //File -> Image
             addPicDataConverter(ThreadType.MANAGER);  //Image -> Hash
 
+            log.info("bytes_all: " + this.bytes.size());
+
             checkEnd();
 
             int exitValue = p.waitFor();

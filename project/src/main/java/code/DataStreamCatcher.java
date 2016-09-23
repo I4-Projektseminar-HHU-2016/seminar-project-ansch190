@@ -129,7 +129,9 @@ public class DataStreamCatcher implements StreamCatcher, Runnable {
 
                 if(Arrays.equals(find,header)){
                     if(bos.size() > 8){
-                        this.bytes.add(bos.toByteArray());
+                        synchronized (this.bytes){
+                            this.bytes.add(bos.toByteArray());
+                        }
                         bos.reset();
                     }
                 }
@@ -153,6 +155,8 @@ public class DataStreamCatcher implements StreamCatcher, Runnable {
                 if(bos!=null){ bos.close(); }
             }catch (Exception e0){ e0.printStackTrace(); }
         }
+
+        log.info("DataStreamCatcher - END");
     }
 
     //#########################

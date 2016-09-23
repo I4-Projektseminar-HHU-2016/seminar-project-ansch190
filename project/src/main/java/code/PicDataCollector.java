@@ -119,7 +119,7 @@ public class PicDataCollector implements Runnable {
 
                     image = ImageIO.read(new ByteArrayInputStream(tmp));
                     synchronized(this.images){
-                        images.add(image);
+                        this.images.add(image);
                         countPics++;
                     }
                 }
@@ -132,7 +132,7 @@ public class PicDataCollector implements Runnable {
         catch(Exception e){ e.printStackTrace(); }
 
         log.info(threadName + " REST-Files: " + this.bytes.size());
-        log.info(threadName + " IMG-Size: " + images.size());
+        log.info(threadName + " IMG-Size: " + this.images.size());
 
         log.info(threadName + " PicDataCollector - MANAGER - END");
         log.info("Pics insgesamt: " + countPics);
@@ -161,7 +161,7 @@ public class PicDataCollector implements Runnable {
 
                     image = ImageIO.read(new ByteArrayInputStream(tmp));
                     synchronized(this.images){
-                        images.add(image);
+                        this.images.add(image);
                         countPics++;
                     }
                 }
@@ -174,7 +174,7 @@ public class PicDataCollector implements Runnable {
         catch(Exception e){ e.printStackTrace(); }
 
         log.info(threadName + " REST-Files: " + this.bytes.size());
-        log.info(threadName + " IMG-Size: " + images.size());
+        log.info(threadName + " IMG-Size: " + this.images.size());
 
         log.info(threadName + " PicDataCollector - WORKER - END");
         log.info("Pics insgesamt: " + countPics);
