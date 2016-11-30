@@ -13,11 +13,53 @@ FFmpeg used as VideoEngine.
 
 ## Getting Started
 
-Make a copy of the Project.
+Clone the Repository with an IDEA for Example:
 
-### Prerequisities
+- IntelliJ IDEA 2016
 
-You need ffmpeg installed on your Computer.
+or Copy the Repository.
+
+## Prerequisities
+
+- You need ffmpeg installed on your Computer.
+
+### Java
+
+- Java 8 SDK
+
+### OS
+
+- Linux
+
+### Gradle Dependency
+
+Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
+
+```gradle
+allprojects {
+	repositories {
+		...
+		mavenCentral()
+	}
+}
+```
+
+Then, add the library to your module `build.gradle`
+```gradle
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
+
+    //Database-Connection
+    compile 'mysql:mysql-connector-java:6.0.3'
+    compile 'org.mariadb.jdbc:mariadb-java-client:1.5.0-RC1'
+}
+```
 
 ### Installing
 
