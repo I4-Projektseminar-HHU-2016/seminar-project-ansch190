@@ -75,10 +75,6 @@ Tests.java
 
 v1.0.0
 
-## Authors
-
-Andreas Schwanitz
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
